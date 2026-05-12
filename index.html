@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="google-site-verification"
+      content="ZpZSe2uX6-XmN3z7iQnT9h4UzCVDK8oMP0kFfmNmhP0"
+    />
+    <meta name="yandex-verification" content="c66cb57309899a18" />
+    <meta
+      name="description"
+      content="ReYohoho - онлайн поиск и просмотр фильмов и сериалов. Подборки, рейтинги, история просмотра и удобная навигация."
+    />
+    <link rel="canonical" href="https://dav2010id.github.io/reyohoho/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dav2010id.github.io/reyohoho/" />
+    <meta property="og:title" content="ReYohoho - онлайн просмотр фильмов и сериалов" />
+    <meta
+      property="og:description"
+      content="ReYohoho - онлайн поиск и просмотр фильмов и сериалов. Подборки, рейтинги, история просмотра и удобная навигация."
+    />
+    <meta property="og:image" content="https://dav2010id.github.io/reyohoho/favicon.ico" />
+
+    <!-- Иконка и заголовок -->
+    <link rel="icon" href="%BASE_URL%favicon.ico" />
+    <link rel="shortcut icon" href="%BASE_URL%favicon.ico" />
+    <title>ReYohoho - онлайн просмотр кино и сериалов</title>
+
+    <!-- Мета-теги для iOS -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="ReYohoho" />
+    <link rel="apple-touch-icon" href="%BASE_URL%icons/icon-192x192.png" />
+
+    <!-- Импорт иконок -->
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+    />
+
+    <!-- Тема PWA -->
+    <meta name="theme-color" content="#000000" />
+    <script>
+      ;(() => {
+        const baseUrl = '%BASE_URL%'
+        const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+        const currentUrl = new URL(window.location.href)
+        const redirectPath = currentUrl.searchParams.get('p')
+
+        if (!redirectPath) {
+          return
+        }
+
+        const restoredPath = decodeURIComponent(redirectPath)
+        const remainingParams = new URLSearchParams(currentUrl.searchParams)
+        remainingParams.delete('p')
+
+        const searchSuffix = remainingParams.toString()
+        const nextUrl = `${normalizedBase}${restoredPath}${searchSuffix ? `?${searchSuffix}` : ''}`
+
+        window.history.replaceState(null, '', nextUrl)
+      })()
+    </script>
+  </head>
+  <body>
+    <h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+      ReYohoho - онлайн просмотр фильмов и сериалов
+    </h1>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script
+      data-goatcounter="https://reyohoho.goatcounter.com/count"
+      async
+      src="%BASE_URL%goatcounter/count.v5.js"
+    ></script>
+  </body>
+</html>
